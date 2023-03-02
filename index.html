@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bs5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Quản trị admin</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="title text-center py-2 bg-dark ">
+        <p class="m-0">Quản trị admin</p>
+
+    </div>
+
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs my-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Quản lý sản phẩm</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Quản lý người
+                    dùng</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Thống kê</button>
+            </div>
+        </nav>
+        <style>
+            #renDer{
+                padding-top: 250px;
+            }
+        </style>
+        <div class="tab-content" id="nav-tabContent">
+            <div id="renDer" class="w-100"><img class="d-flex justify-content-center w-25  m-auto" src="./img/gif/ezgif-2-6d0b072c3d3f.gif" alt=""></div>
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
+                
+                <div class="row py-3">
+                    <div class="col-md-8 ">
+                        <button type="button" id="btnAdd" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <form action="" class="d-flex">
+                            <input class="form-control mx-2" type="text">
+                            <button class="btn btn-primary">Tìm</button>
+                        </form>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Hình ảnh</th>
+                            <th>Màn hình</th>
+                            <th>Camera sau</th>
+                            <th>Camera trước</th>
+                            <th>Mô tả</th>
+                            <th colspan="2" class="text-center"><i class="fa-solid fa-gear "></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="renDerProduct">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                ...</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                ...</div>
+            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab"
+                tabindex="0">...</div>
+        </div>
+
+    </div>
+
+    <!-- Modal add-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="./img/product_tet/" alt="">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Tên sản phẩm:</label>
+                        <input id="nameSp" class="form-control" type="text">
+                        <div id="tbName"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Giá:</label>
+                        <input id="priceSp" class="form-control" type="text">
+                        <div id="tbPrice"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Màn hình:</label>
+                        <input id="screenSp" class="form-control" type="text">
+                        <div id="tbScreen"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Camera sau:</label>
+                        <input id="backCameraSp" class="form-control" type="text">
+                        <div id="tbBackCamera"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Camera trước:</label>
+                        <input id="frontCameraSp" class="form-control" type="text">
+                        <div id="tbFrontCamera"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Hình ảnh:</label>
+                        <input id="ImgSp" class="form-control" type="file">
+                        <div id="tbImg"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Loại:</label>
+                        <select class="form-control" name="" id="category">
+                            <option value="0">Chọn loại</option>
+                            <option value="1">iPhone</option>
+                            <option value="2">MacBook</option>
+                            <option value="3">Apple Watch</option>
+                        </select>
+                        <div id="tbCategory"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Mô tả:</label>
+                        <input id="descriptionSp" class="form-control" type="text">
+                        <div id="tbdescriptionSp"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal update-->
+    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabelUpdate"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="./img/product_tet/" alt="">
+                    <h1 class="modal-title fs-5" id="exampleModalLabelUpdate">123</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Tên sản phẩm: </label>
+                        <input id="nameSp1" class="form-control" type="text">
+                        <div id="tbName1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Giá:</label>
+                        <input id="priceSp1" class="form-control" type="text">
+                        <div id="tbPrice1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Màn hình:</label>
+                        <input id="screenSp1" class="form-control" type="text">
+                        <div id="tbScreen1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Camera sau:</label>
+                        <input id="backCameraSp1" class="form-control" type="text">
+                        <div id="tbBackCamera1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Camera trước:</label>
+                        <input id="frontCameraSp1" class="form-control" type="text">
+                        <div id="tbFrontCamera1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Hình ảnh:</label>
+                        <input id="ImgSp1" class="form-control" type="file">
+                        <div id="tbImg1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Loại:</label>
+                        <select class="form-control" name="" id="category1">
+                            <option value="0">Chọn loại</option>
+                            <option value="1">iPhone</option>
+                            <option value="2">MacBook</option>
+                            <option value="3">Apple Watch</option>
+                        </select>
+                        <div id="tbCategory1"></div>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label class="pb-1">Mô tả:</label>
+                        <input id="descriptionSp1" class="form-control" type="text">
+                        <div id="tbdescriptionSp1"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal delete-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                    <button type="button" class="btn-close" id="close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="renderTb">
+
+                </div>
+                <div class="modal-footer" id="deleteProd">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+    integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- lodash -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+    integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./js/server/callApi.js"></script>
+<script src="./js/model/validation.js"></script>
+<script src="./js/model/product.js"></script>
+<script src="./js/controller/main.js"></script>
+
+</html>
