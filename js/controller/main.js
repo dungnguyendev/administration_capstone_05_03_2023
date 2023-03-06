@@ -36,7 +36,7 @@ const renDerProd = (item) => {
                     <th scope="row">${i + 1}</th>
                     <td>${prod.name}</td>
                     <td>${formatter.format(prod.price)}</td>
-                    <td><img src="./img/product_tet/${prod.img}" alt=""></td>
+                    <td class="t"><img class="w-50" src="./img/product_tet/${prod.img}" alt=""></td>
                     <td>${prod.screen}</td>
                     <td>${prod.backCamera}</td>
                     <td>${prod.frontCamera}</td>
